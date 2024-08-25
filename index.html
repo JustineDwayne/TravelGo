@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Go</title>
+    <!--CUSTOM FONT-->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .image-container {
+            position: relative;
+            width: 100%;
+            font-family: 'Roboto Condensed';
+            overflow: hidden;
+            cursor: pointer;
+        }
+    
+        .image {
+          width: 100%;
+          height: 100%;
+          transition: transform 0.5s;
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .details {
+            text-shadow: 0 0 5px rgb(0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            color: #fff;
+            opacity: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: background 0.5s, opacity 0.5s, transform 0.5s;
+        }
+    
+        .additional-detailss {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+    
+        .details p{
+            margin: 0;
+            transform: translateY(0);
+            transition: transform 0.5s;
+        }
+   
+    
+        .image-container:hover .details {
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 1;
+        }
+    
+        .image-container:hover .additional-detailss {
+            opacity: 1;
+        }
+    
+        .image-container:hover .details p {
+             transform: translateY(-100%);
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1); 
+        }
+
+        .card {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        transition: height 0.5s;
+        }
+
+        .card img {
+        border-radius: 0.2rem;
+        max-width: 100%;
+        height: auto;
+        }
+
+        .card .card-body {
+        text-align: center;
+        }
+
+        .additional-details {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s, opacity 0.5s;
+        }
+
+        .card.open .additional-details {
+        max-height: 200px; /* Adjust the maximum height as needed */
+        opacity: 1;
+        transition: max-height 0.5s, opacity 0.5s;
+        }
+
+        .btn-more-details {
+        transition: transform 0.3s;
+        }
+    </style>
+</head>
+<header id="header"> <!-- the content is in the dynamic text folder in header.html --> </header>
+<body style=" background-color: rgb(242, 242, 242)">
+
+<div id="dd">
+    <div class = "ddc">
+        <li href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</li>
+        <li id="bookli1"><a href="#maincar">Book</a></li>
+        <li id="flightli1"><a href="#flight">Flights</a></li>
+        <li id="hotelli1"><a href="#hotel">Hotels</a></li>
+        <li id="actli1"><a href="#activity">Activities</a></li>
+        <li id="contactli1"><a href="#contacts">Contact</a></li>
+    </div>
+        <div style="margin-bottom: 5rem;">
+            <li href="#">Login</li>
+        </div>
+</div>
+
+<div id="maincar" style="box-shadow: 0 4px 8px rgba(0, 0, 0, .5); height: 36rem; z-index: 22; padding-top: 5rem; background-color: #183251;">
+
+    <div class="carousel">
+        <input type="radio" id="carousel-css-slide-1" name="carousel-css" value="slide-1" checked/>
+        <input type="radio" id="carousel-css-slide-2" name="carousel-css" value="slide-2"/>
+        <input type="radio" id="carousel-css-slide-3" name="carousel-css" value="slide-3"/>
+        <input type="radio" id="carousel-css-slide-4" name="carousel-css" value="slide-4"/>
+    
+        <label for="carousel-css-slide-1" data-value="slide-1"></label>
+        <label for="carousel-css-slide-2" data-value="slide-2"></label>
+        <label for="carousel-css-slide-3" data-value="slide-3"></label>
+        <label for="carousel-css-slide-4" data-value="slide-4"></label>
+    
+        <div class="carousel-wrapper">
+            <div class="carousel-slide">
+                <div id="c1">
+                    <h2 id="c1txt" style="text-shadow: 0 0 5px rgb(0, 0, .5); font-family: 'Roboto Condensed', sans-serif; color: #fff; font-weight: bolder;">
+                        TRAVEL WITH <span style="color: #BFA100;"> EASE </span> 
+                    </h2>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div id="c2">
+                    <h2 id="c2txt" style="text-shadow: 0 0 5px rgb(0, 0, .5); font-family: 'Roboto Condensed', sans-serif; color: #fff; font-weight: bolder;">
+                        BRING HOME<span style="color: #BFA100;"> MEMORY </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div id="c3">
+                    <h2 id="c3txt" style="text-shadow: 0 0 5px rgb(0, 0, .5); font-family: 'Roboto Condensed', sans-serif; color: #fff; font-weight: bolder;">
+                        TRAVEL WITH <span style="color: #BFA100;"> PEACE </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div id="c4">
+                    <h2 id="c4txt" style="text-shadow: 0 0 5px rgb(0, 0, .5); font-family: 'Roboto Condensed', sans-serif; color: #fff; font-weight: bolder;">
+                        BRING HOME <span style="color: #BFA100;"> HISTORY </span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="background-color: #BFA100; height: .2rem;"></div>
+<div style="background-color: #183251; height: .3rem;"></div>
+<div style="background-color: #BFA100; height: .2rem;"></div>
+<div style="background-color: #183251; height: .2rem;"></div>
+<div style="background-color: #BFA100; height: .2rem;"></div>
+<div style="background-color: #183251; height: .1rem;"></div>
+<div style="background-color: #BFA100; height: 10rem; box-shadow: 0 4px 8px rgb(0, 0, .5);"></div>
+<div style="background-color: #183251; height: .2rem; box-shadow: 0 4px 8px rgb(0, 0, .5);"></div>
+<div style="margin-top: 1rem;"></div>
+
+
+<section id="book">
+    <div class="booking-container" style="display: flex; justify-content: center;">
+        <div class="form-box" id="bookform" style="position: absolute; width: 80%; height: auto; margin: 28rem 0 0 0; top: 0; z-index: 99; background-color: rgb(242, 242, 242);">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="radiogroup" id="radiobook" autocomplete="off" checked="">
+                <label class="btn btn-outline-primary" for="radiobook" style="color: #183251; font-weight: bolder;" >Book a flight</label>
+                <input type="radio" class="btn-check" name="radiogroup" id="radiomanage" autocomplete="off">
+                <label class="btn btn-outline-primary" for="radiomanage" style="color: #183251; font-weight: bolder;">Manage Check in</label>
+                <input type="radio" class="btn-check" name="radiogroup" id="radioevents" autocomplete="off">
+                <label class="btn btn-outline-primary" for="radioevents" style="color: #183251; font-weight: bolder;">Events</label>
+            </div>
+            <form style="font-family: 'Roboto Condensed', sans-serif;">
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="start" style="font-family: 'Roboto Condensed', sans-serif; color: #183251;">From</label><br>
+                                <select id="from" name="from" style="color: #183251; margin-bottom: .5rem; width: 100%; height: 2rem; text-align: center; border-color: rgb(172, 172, 172);">
+                                    <option value="Manila">Manila</option>
+                                    <option value="Cebu">Cebu</option>
+                                    <option value="Davao">Davao</option>
+                                    <option value="Quezon City">Quezon City</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="end" style="font-family: 'Roboto Condensed', sans-serif; color: #183251;">To</label><br>
+                                <select id="to" name="to" style="color: #183251; margin-bottom: 1rem; width: 100%; height: 2rem; text-align: center; border-color: rgb(172, 172, 172);">
+                                    <option value="Cebu">Cebu</option>
+                                    <option value="Manila">Manila</option>
+                                    <option value="Davao">Davao</option>
+                                    <option value="Quezon City">Quezon City</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="start" style="font-family: 'Roboto Condensed', sans-serif; color: #183251;">Depart</label><br>
+                                <input type="date" id="start" name="start" style="color: #183251; margin-bottom: .5rem; text-align: center; width: 100%; height: 2rem; border-color: rgb(172, 172, 172); border-style: solid; border-width: 1px;" value="2024-03-11">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="end" style="font-family: 'Roboto Condensed', sans-serif; color: #183251;">Return</label><br>
+                                <input type="date" id="end" name="end" style="color: #183251; margin-bottom: 1rem; text-align: center;  width: 100%; height: 2rem; border-color: rgb(172, 172, 172); border-style: solid; border-width: 1px;" value="2024-03-18">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <input type="submit" value="Search" style="font-size: 22px; font-weight: bolder; color: #fff; background-color: #183251; border-style: none; box-shadow: 0 0 4px rgba(0, 0, 0, .5); width: 8rem; height: 3rem; border-radius: 1rem;">
+            </form>      
+        </div> 
+    </div>
+</section>
+
+<section id ="flight" class="fade-section" style="padding-top: 1rem;">
+    <div class="container">
+        <div class="row">
+            <h1 style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder;">Our offered Flights</h1>
+            <div style="height: .2rem; width: 14rem; background-color: #BFA100; margin: 0 0 1.5rem 1rem;"></div>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input onclick="changeflight('e')" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
+            <label class="btn btn-outline-primary" for="btnradio1" style="color: #183251; font-weight: bolder;">Economy</label>
+            <input onclick="changeflight('b')" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2" style="color: #183251; font-weight: bolder;">Business</label>
+            <input onclick="changeflight('f')" type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3" style="color: #183251; font-weight: bolder;">First class</label>
+        </div>
+        <div class ="container" style="margin-top: 2rem;">
+            <div class ="row">
+                <div class ="col-lg-6">
+                    <img id="imgflights" src="/images/ads1.jpg" style="border-radius: 1rem; width: 100%; height: 20rem; box-shadow: 0 0 10px rgba(0, 0, 0, .5);" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6" style="padding-top: 2rem;">
+
+                    <div id="economydiv">
+                        <h3 style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder;">Economy Flights</h3>
+                        <p>
+                            Ready to take off on your next adventure? Click our "Flights" button to begin your journey. With a simple tap, you'll gain access to a wide array of destinations and flight options tailored to your preferences. 
+                        </p>
+                        <button type="button" class="butt" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #183251; color: #fff; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                            Book Now
+                        </button>
+                    </div>
+
+                    <div id="businessdiv" style="display: none;">
+                        <h3 style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder;">Business Flights</h3>
+                        <p>
+                            Ready to take off on your next adventure? Click our "Flights" button to begin your journey. With a simple tap, you'll gain access to a wide array of destinations and flight options tailored to your preferences. 
+                        </p>
+                        <button type="button" class="butt" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #183251; color: #fff; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                            Book Now
+                        </button>
+                    </div>
+
+                    <div id="firstclassdiv" style="display: none;">
+                        <h3 style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder;">First class Flights</h3>
+                        <p>
+                            Ready to take off on your next adventure? Click our "Flights" button to begin your journey. With a simple tap, you'll gain access to a wide array of destinations and flight options tailored to your preferences. 
+                        </p>
+                        <button type="button" class="butt" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #183251; color: #fff; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                            Book Now
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+       </div>
+    </div>
+</section>
+
+<section id ="hotel" class="fade-section">
+    <div class="container">
+        <div class="row">
+            <h1 style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder;">Our offered Hotels</h1>
+            <div style="height: .2rem; width: 14rem; background-color: #BFA100; margin: 0 0 1.5rem 1rem;"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card" id="hotelCard">
+                    <img src="images/hotel1.jpg" style="width: 100%; height: 25rem;" alt="The Rembrandt">
+                    <div class="card-body">
+                        <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">The Rembrandt</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="additional-details">
+                            <p>Additional details about The Rembrandt.</p>
+                            <p>More information here.</p>
+                        </div>
+                        <button type="button" class="butt" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);" onclick="toggleDetails()">
+                            More Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" id="hotelCard2">
+                    <img src="images/hotel2.jpg" style="width: 100%; height: 25rem;" alt="The Rembrandt">
+                    <div class="card-body">
+                        <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">The Hari</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="additional-details">
+                        <p>Additional details about The Rembrandt.</p>
+                        <p>More information here.</p>
+                        </div>
+                        <button type="button" class="butt" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);" onclick="toggleDetails2()">More Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card" id="hotelCard3">
+                    <img src="images/hotel3.jpg" style="width: 100%; height: 25rem;" alt="The Rembrandt">
+                    <div class="card-body">
+                        <h4 class="card-title" style="font-family: 'Roboto Condensed', sans-serif;">Clarion Prague</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="additional-details">
+                        <p>Additional details about The Rembrandt.</p>
+                        <p>More information here.</p>
+                        </div>
+                        <button type="button" class="butt" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);" onclick="toggleDetails3()">More Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <button type="button" class="butt" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #183251; color: #fff; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                    Show more Hotels
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="activity"class="fade-section">
+    <div class="container">
+        <div class="row">
+            <h1 style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder;">Check out our Activities</h1>
+            <div style="height: .2rem; width: 14rem; background-color: #BFA100; margin: 0 0 1.5rem 1rem;"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card bg-secondary">
+                    <div class="image-container">
+                        <img class="image" src="/images/babanaboat.jpg" alt="Your Image" style="height: 17.5rem;">
+                        <div class="details">
+                            <p style="color: #fff; font-size: 30px;">Bananaboat Ride</p>
+                            <div class="additional-detailss">
+                                <p style="color: #fff;">Additional details only shown on hover.</p>
+                                <p style="color: #fff;">More information on hover.</p>
+                                <button type="button" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <div class="col-md-3 mb-3">
+                <div class="card bg-secondary">
+                    <div class="image-container">
+                        <img class="image" src="/images/kayak.jpg" alt="Your Image" style="height: 17.5rem;">
+                        <div class="details">
+                            <p style="color: #fff; font-size: 30px">Kayaking</p>
+                            <div class="additional-detailss">
+                                <p style="color: #fff;">Additional details only shown on hover.</p>
+                                <p style="color: #fff;">More information on hover.</p>
+                                <button type="button" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-secondary">
+                    <div class="image-container">
+                        <img class="image" src="/images/sinulog.jpg" alt="Your Image" style="height: 17.5rem;">
+                        <div class="details">
+                            <p style="color: #fff; font-size: 30px">Sinulog</p>
+                            <div class="additional-detailss">
+                                <p style="color: #fff;">Additional details only shown on hover.</p>
+                                <p style="color: #fff;">More information on hover.</p>
+                                <button type="button" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-secondary">
+                    <div class="image-container">
+                        <img class="image" src="/images/islandhoping.jpg" alt="Your Image" style="height: 17.5rem;">
+                        <div class="details">
+                            <p style="color: #fff; font-size: 30px">Island Hopping</p>
+                            <div class="additional-detailss">
+                            <p style="color: #fff;">Additional details only shown on hover.</p>
+                            <p style="color: #fff;">More information on hover.</p>
+                            <button type="button" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                                More Details
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-secondary" >
+                    <div class="image-container">
+                        <img class="image" src="/images/hiking.jpg" alt="Your Image" style="height: 17.5rem;">
+                        <div class="details">
+                            <p style="color: #fff; font-size: 30px">Hiking</p>
+                            <div class="additional-detailss">
+                            <p style="color: #fff;">Additional details only shown on hover.</p>
+                            <p style="color: #fff;">More information on hover.</p>
+                            <button type="button" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                                More Details
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card bg-secondary" >
+                    <div class="image-container">
+                        <img class="image" src="/images/diving.jpg" alt="Your Image" style="height: 17.5rem;">
+                        <div class="details">
+                            <p style="color: #fff; font-size: 30px;">Diving</p>
+                            <div class="additional-detailss">
+                                <p style="color: #fff;">Additional details only shown on hover.</p>
+                                <p style="color: #fff;">More information on hover.</p>
+                                <button type="button" style="width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style ="display: flex; justify-content: center; align-items: center; margin: 1rem 0 2.5rem 0;">
+            <button type="button" style="width: 12rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #183251; color: #fff; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                Show more Activities
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="contacts" class="fade-section">
+    <div class="container">
+        <div class="contact-container">
+            
+            <div class="row">
+                <h1 style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder;">Consider reaching us</h1>
+                <div style="height: .2rem; width: 14rem; background-color: #BFA100; margin: 0 0 1.5rem 1rem;"></div>
+            </div>
+
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-7" style="background-color: #BFA100;">
+                        <img class="card-img" style="height: 30rem; width:100%;" src="/images/Happy passengers.jpg">
+                    </div>
+                    <div class="col-md-5" style="background-color: #183251;">
+                        <div style="padding: 1rem 1rem 0 0; display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%;">
+
+                            <label for="staticEmail" class="col-sm-2 col-form-label" style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; color: #fff; font-size: 1.3rem;">Email</label>
+                            <input type="email" class="form-control" style="margin-bottom: 1rem;" id="" placeholder="Enter Email">
+
+                            <label for="staticEmail" class="col-sm-2 col-form-label" style="font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; color: #fff; font-size: 1.3rem;">Message</label>
+                            <textarea type="text" rows="4" class="form-control" id=""> </textarea>
+
+                            <button type="button" style="margin-top: 2rem; width: 10rem; height: 3rem; border-radius: 1rem; border-style: none; background-color: #BFA100; color: #183251; font-family: 'Roboto Condensed', sans-serif; font-weight: bolder; font-size: large; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);">
+                                Send Message
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-3" style="background-color: #183251; margin-top: 4rem;">
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img style="width: 50px; height: 50px; filter: invert();" src ="/images/smaller-transparentlogov2.png">
+    </div>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#maincar" class="nav-link px-2 text-body-secondary" style="color: #fff;">Book</a></li>
+        <li class="nav-item"><a href="#flight" class="nav-link px-2 text-body-secondary" style="color: #fff;">Flights</a></li>
+        <li class="nav-item"><a href="#hotel" class="nav-link px-2 text-body-secondary" style="color: #fff;">Hotels</a></li>
+        <li class="nav-item"><a href="#activity" class="nav-link px-2 text-body-secondary" style="color: #fff;">Activities</a></li>
+        <li class="nav-item"><a href="#contacts" class="nav-link px-2 text-body-secondary" style="color: #fff;">Contact</a></li>
+    </ul>
+    <p class="text-center text-body-secondary" style="color: #fff;">&copy; 2024 Travel Go, Inc</p>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- script that puts dynamic texts -->
+<script>
+
+    fetch('../dynamictexts/header.html') 
+    .then(response => response.text())
+    .then(text => {
+
+        document.getElementById('header').innerHTML = text;
+
+    })
+    .catch(err => console.error('Something is wong', err));
+
+</script>
+
+<!-- open and close of side nav -->
+<script>
+    function openNav() {
+      document.getElementById("dd").style.width = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("dd").style.width = "0";
+    }
+</script>
+
+<!-- more details dropdown on hotels -->
+<script>
+  function toggleDetails() {
+    const card = document.getElementById("hotelCard");
+    const details = card.querySelector(".additional-details");
+    const btnMoreDetails = card.querySelector(".butt");
+
+    card.classList.toggle("open");
+
+    if (card.classList.contains("open")) {
+      details.style.maxHeight = details.scrollHeight + "px";
+      btnMoreDetails.textContent = "Less Details";
+    } else {
+      details.style.maxHeight = 0;
+      btnMoreDetails.textContent = "More Details";
+    }
+  }
+  function toggleDetails2() {
+    const card = document.getElementById("hotelCard2");
+    const details = card.querySelector(".additional-details");
+    const btnMoreDetails = card.querySelector(".butt");
+
+    card.classList.toggle("open");
+
+    if (card.classList.contains("open")) {
+      details.style.maxHeight = details.scrollHeight + "px";
+      btnMoreDetails.textContent = "Less Details";
+    } else {
+      details.style.maxHeight = 0;
+      btnMoreDetails.textContent = "More Details";
+    }
+  }
+  function toggleDetails3() {
+    const card = document.getElementById("hotelCard3");
+    const details = card.querySelector(".additional-details");
+    const btnMoreDetails = card.querySelector(".butt");
+
+    card.classList.toggle("open");
+
+    if (card.classList.contains("open")) {
+      details.style.maxHeight = details.scrollHeight + "px";
+      btnMoreDetails.textContent = "Less Details";
+    } else {
+      details.style.maxHeight = 0;
+      btnMoreDetails.textContent = "More Details";
+    }
+  }
+</script>
+
+<!-- add fade effects on section -->
+<script>
+    const sections = document.querySelectorAll('.fade-section');
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+        }
+    });
+    }, {
+    threshold: 0.5
+    });
+
+    sections.forEach(section => {
+    observer.observe(section);
+    });
+</script>
+
+<!-- change flight effects -->
+<script>
+    function changeflight(type){
+        if(type === 'e'){
+
+            document.getElementById('economydiv').style.display = 'block';
+            document.getElementById('businessdiv').style.display = 'none';
+            document.getElementById('firstclassdiv').style.display = 'none';
+            document.getElementById('imgflights').src = '/images/ads1.jpg';
+
+        } else if (type === 'b'){
+
+            document.getElementById('economydiv').style.display = 'none';
+            document.getElementById('businessdiv').style.display = 'block';
+            document.getElementById('firstclassdiv').style.display = 'none';
+            document.getElementById('imgflights').src = '/images/ads2.jpg';
+
+        } else if (type === 'f'){
+
+            document.getElementById('economydiv').style.display = 'none';
+            document.getElementById('businessdiv').style.display = 'none';
+            document.getElementById('firstclassdiv').style.display = 'block';
+            document.getElementById('imgflights').src = '/images/ads3.jpg';
+
+        }
+    }
+</script>
+    
+</body> 
+
+
+</html>

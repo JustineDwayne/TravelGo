@@ -1,0 +1,358 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+
+#book, #flight, #hotel, #activity, #contacts{
+    background-color: rgb(242, 242, 242);
+}
+
+#flight, #hotel, #activity, #contacts{
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity .5s ease-in-out, transform 1s ease-in-out;
+}
+
+header{
+    color: lightgray;
+    background-color: #183251;
+    box-shadow: 0, 0, 10px rgba(0 0 0 0.5);
+    padding: .5rem 0 .5rem 0;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    
+}
+nav h1{
+    color: lightgrey;
+}
+.nav-logo{ 
+    display: flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+}
+.img-logo{ 
+    width: 70x !important; 
+    height: 80px !important;
+    padding-left: 20px !important;
+    margin-right: 20px !important;
+    filter: invert() !important;
+}
+.logo-name{
+    font-size: 30px;
+    font-family: 'Roboto slab', sans-serif;
+}
+
+nav ul{
+    list-style: none;
+}
+nav li{
+    padding-top: 1.75rem;
+    margin-right: 2.5rem;
+    cursor: pointer;
+    color: #c4cbd8;
+    /* font-weight: bold; */
+    font-size: 20px;
+
+}
+.nav1 a{
+    color: lightgray;
+    text-decoration: none;
+}
+.nav1 a:hover{
+    color: #BFA100 !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo-name:hover{
+    color: #BFA100 !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.burger{
+    font-size: xx-large;
+    margin: 1rem 3rem 0 0;
+    cursor: pointer;
+}
+#dd{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    background-color: #151f30;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+}
+#dd li {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #597f97;
+    display: block;
+    transition: 0.3s;
+
+}
+
+
+#dd li:hover {
+    color: lightgray;
+}
+
+#dd .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.active{
+    color: #BFA100 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#c1, #c2, #c3, #c4{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+#c1{
+    background-image: url(/images/boracay.jpg);
+}
+#c2{
+    background-image: url(/images/mayon1dark.jpg);
+}
+#c3{
+    background-image: url(/images/fall2.jpg);
+}
+#c4{
+    background-image: url(/images/rizalparkdark.jpg);
+}
+
+/* BOOKING SECTION */
+.img__section1{
+    border-radius: 10%;
+}
+
+.section-container1{
+    display: flex;
+    margin: 2rem 2rem 1.5rem 2rem;
+}
+.details-container1 h3{
+    color: black;
+    font-size: 60px;
+    text-align: center;
+}
+.details-container1 p{
+    padding: 10px 20px 0 20px;
+    padding-left: 50px;
+    text-align: justify;
+    font-size: 30px;
+}
+
+.booking-container{
+    text-align: center;
+}
+
+.form-box{
+    margin-left: 25%;
+    margin-top: 5%;
+    width: 50%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 5px rgb(24, 24, 24);
+}
+/* flight section */
+#flight{
+    margin-bottom: 1.5rem;
+}
+.btn-group{
+    display: flex !important;
+    margin-bottom: 20px;
+}
+
+.img-fluid{
+    
+}
+/* contact section */
+.contact-container{
+  
+}
+.img__section2{
+    margin: auto
+}
+
+
+/*media query nav*/
+
+/* Small devices (regular screen phones) */
+@media screen and (min-width: 1px) and (max-width: 371px) {
+    .nav1{
+        display: none;
+    }
+    .burger{
+        display: flex;
+    }
+    #c1txt, #c2txt, #c3txt, #c4txt{
+        margin: 10rem 0 0 0; 
+        font-size: 2rem;
+    }
+}
+
+/* Small devices (large screen phones) */
+@media screen and (min-width: 371px) and (max-width: 601px) {
+    .nav1{
+        display: none;
+    }
+    .burger{
+        display: flex;
+    }
+      .details-container1 h3{
+        font-size: 50px;
+    }
+    .details-container1 p{
+        font-size: 20px;
+    }
+    .img__section1{
+        width: 50%;
+        height: 50%;
+    }
+    #c1txt, #c2txt, #c3txt, #c4txt{
+        margin: 10rem 0 0 0; 
+        font-size: 2.5rem;
+    }
+   
+}
+
+/* Small devices (tablets) */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+    .nav1{
+        display: none;
+    }
+    .burger{
+        display: flex;
+    }
+    .details-container1 h3{
+        font-size: 20px;
+    }
+    .details-container1 p{
+        font-size: 10px;
+    }
+    form{
+        width: 100%;
+    }
+    .img__section1{
+        width: 50%;
+        height: 50%;
+    }
+    #c1txt, #c2txt, #c3txt, #c4txt{
+        margin: 10rem 0 0 0; 
+        font-size: 3.5rem;
+    }
+}
+
+/* Medium devices (desktops) */
+@media screen and (min-width: 769px) and (max-width: 993px) {
+    .nav1{
+        display: none;
+    }
+    .burger{
+        display: flex;
+    }
+    .details-container1 h3{
+        font-size: 50px;
+    }
+    .details-container1 p{
+        font-size: 20px;
+    }
+    form{
+        width: 100%;
+    }
+    .img__section1{
+        width: 50%;
+        height: 50%;
+    }
+    #c1txt, #c2txt, #c3txt, #c4txt{
+        margin: 10rem 0 0 0; 
+        font-size: 4rem;
+    }
+}
+
+/* Large devices (large desktops) */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    .nav1{
+        display: flex;
+    }
+    .burger{
+        display: none;
+    }
+    #dd{
+        display: none !important;
+    }
+    nav li{
+        font-size: 17px;
+    }
+    .details-container1 h3{
+        font-size: 50px;
+    }
+    .details-container1 p{
+        font-size: 20px;
+    }
+    form{
+        width: 100%;
+    }
+    #c1txt, #c2txt, #c3txt, #c4txt{
+        margin: 10rem 30% 0 0; 
+        font-size: 4rem;
+    }
+}   
+
+/* Large devices (large desktops) */
+@media screen and (min-width: 1200px){
+    .nav1{
+        display: flex;
+    }
+    .burger{
+        display: none;
+    }
+    #dd{
+        display: none !important;
+    }
+    nav li{
+        font-size: 20px;
+    }
+    .details-container1 h3{
+        font-size: 50px;
+    }
+    .details-container1 p{
+        font-size: 20px;
+    }
+    form{
+        width: 100%;
+    }
+    #c1txt, #c2txt, #c3txt, #c4txt{
+        margin: 10rem 30% 0 0; 
+        font-size: 4rem;
+    }
+}
+

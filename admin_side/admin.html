@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "admin.css">
+    <link rel="stylesheet" href= "bootstrap.css">
+    <script src="admin.js"></script>
+    <title>TravelGo</title>
+</head>
+
+ <body>
+        <header>
+            <div class="header">
+                TravelGo 
+                <span class = "welcome-text" class = "col-lg-12">Welcome, admin</span>
+            </div>
+        </header>
+
+     <div class="sidebar">
+            <a href="#dashboard" onclick="sidebar('dashboard')">Dashboard</a>
+            <a href="#flights" onclick="sidebar('flights')">Flights</a>
+            <a href="#hotels" onclick="sidebar('hotels')">Hotels</a>
+            <a href="#bookings" onclick="sidebar('bookings')">Bookings</a>
+            <a href="#admins" onclick="sidebar('admins')">Admins</a>
+            <a href="#users" onclick="sidebar('users')">Accounts</a>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <a href="adminLogin.html" onclick="logout()" style="text-align: center;">Logout</a>
+
+        </div>
+
+    
+
+     <div class="content" id="dash-div">
+            <h2 style="margin-top: 3rem;">Dashboard</h2> 
+     
+
+            <div class="dashboard-box row"  >       
+
+                <div class=" col-lg-3">
+                    <div class="sls"> 
+
+                        <h3 style="color: #fff;">Flight Revenue Sales</h3>
+
+                        <p>P100,000</p>
+                
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="sls"> 
+
+                        <h3 style="color: #fff;">Hotel Revenue Sales</h3>
+
+                        <p>P100,000</p>
+            
+                    </div>
+                </div> 
+
+                <div class="col-lg-3">
+
+                    <div class="sls"> 
+
+                        <h3 style="color: #fff;">Weekly <br> Sales</h3>
+
+                        <p>P100,000</p>
+
+                    </div>
+
+                </div>
+        
+                <div class="col-lg-3">
+
+                    <div class="sls"> 
+
+                        <h3 style="color: #fff;">Total<br> Sales</h3>
+
+                        <p>P100,000</p>
+
+                    </div>
+                </div>
+
+            </div>    
+            
+        </div>
+
+        <div class="content" id="flights-div">
+            <h2 style="margin-top: 3rem;">Flights</h2> 
+            
+            <div class="add-flight">
+
+                <label for="fnum" style="color: #183251;">Flight Number: </label>
+                <input type="text" id="flightnumber" name="flightnumber">
+                <br>
+                <label for="farr" style="color: #183251;">Arrival: </label>
+                <input type="text" id="arrival" name="arrival">
+                <br>
+                <label for="fdes" style="color: #183251;">Destination: </label>
+                <input type="text" id="destination" name="destination">
+                <br>
+                <label for="fdep" style="color: #183251;">Flight Departure: </label>
+                <input type="text" id="departure" name="departure">
+                <br>
+                <input type="submit" value="Add Flight">
+
+
+            </div>
+            
+        </div>
+        
+
+        <div class="content" id="hotels-div">
+            <h2 style="margin-top: 3rem;">Hotels</h2>
+
+            <div class="add-hotel">
+
+                <label for="himage" style="color: #183251;">Hotel Image: </label>
+                <input type="file" id="himage" name="himage" accept="image/*" onchange="previewImage(event)">
+                <br><br>
+                <img id="preview" src="#" alt="Preview Image" style="display: none; max-width: 200px; margin-top: 10px;">
+        
+
+                <label for="hname" style="color: #183251;">Hotel Name: </label>
+                <input type="text" id="hname" name="hname">
+                <br>
+                <label for="hdesc" style="color: #183251;">Hotel Description: </label>
+                <input type="text" id="hdesc" name="hdesc">
+                <br>
+                <label for="hloc" style="color: #183251;">Hotel Location: </label>
+                <input type="text" id="hloc" name="hloc">
+                <br>
+
+                <div class="hotel-status">
+                    <label for="hstat" style="color: #183251;">Hotel Status:</label>
+                    <select name="hstat" id="hstat">
+                    <option value="avail">Available</option>
+                    <option value="navail">Not Available</option>
+                    </select>
+                    <br>
+                </div>
+                <br>
+                <label for="hnum" style="color: #183251;">Hotel Room Number:</label>
+                <input type="number" id="hnum" name="hnum">
+                <div class="room-types">
+                    <label for="hstat" style="color: #183251;">Room Types:</label>
+                    <br>
+                    <input type="checkbox" id="type1" name="type1" value="Suite">
+                    <label for="type1" style="color: #183251;"> Suite</label><br>
+                    <input type="checkbox" id="type2" name="type2" value="Deluxe">
+                    <label for="type2" style="color: #183251;"> Deluxe</label><br>
+                    <input type="checkbox" id="type3" name="type3" value="Ordinary">
+                    <label for="type3" style="color: #183251;"> Ordinary</label><br><br>
+                </div>
+                
+
+                <input type="submit" value="Add Hotel">
+
+             </div>
+        </div>
+
+        <div class="content" id="bookings-div">
+        <h2 style="margin-top: 3rem;">Bookings</h2>
+        <h2>This is the Bookings page, makikita ng admin yung mga users na nag book sa hotel at flights.</h2> 
+        </div>
+
+    
+        <div class="content" id="admins-div">
+            <h2 style="margin-top: 3rem;">Admins</h2> 
+            <div class="admin">
+
+                <label for="adfname" style="color: #183251;">First Name: </label>
+                <input type="text" id="adfname" name="adfname">
+                <br>
+                <label for="adlname" style="color: #183251;">Last Name: </label>
+                <input type="text" id="adlname" name="adlname">
+                <br>
+                <label for="aduser" style="color: #183251">Username: </label>
+                <input type="text" id="aduser" name="aduser">
+                <br>
+
+                <label for="role" style="color: #183251;">Role: </label>
+
+                <br>
+
+                <input type="radio" id="superadmin" name="role" value="superadmin">
+
+                <label for="superadmin" style="color: #183251;">Superadmin</label><br>
+
+                <input type="radio" id="admin" name="role" value="admin">
+
+                <label for="admin" style="color: #183251;">Admin</label>
+                
+                <br>
+                <label for="adpass" style="color: #183251;">Password: </label>
+                <input type="password" id="adpass" name="adpass">
+                <br>
+                <label for="adre" style="color: #183251;">Re-enter Password: </label>
+                <input type="password" id="adre" name="adre">
+                <br>
+
+                <input type="submit" value="Create">
+
+            </div>
+        </div>
+
+       
+
+        <div class="content" id="users-div">
+            <h2 style="margin-top: 3rem;">Accounts</h2> 
+            <div class="acclink">
+                <a href="#admins_acc" onclick="acclink('admins_acc')" id="adminsLink">Admins</a> |
+                <a href="#users_acc" onclick="acclink('users_acc')" id="usersLink">Users</a>
+            </div>
+            <div class="content" id="admins_acc" style="display: block;">
+                <!-- Admins accounts content -->
+                <h2>Admins Section</h2>
+                <p>This is where the list of admins will be displayed.</p>
+            </div>
+            
+            <div class="content" id="users_acc" style="display: none;">
+                <!-- Users accounts content -->
+                <h2>Users Section</h2>
+                <p>This is where the list of users will be displayed.</p>
+            </div>
+            
+
+
+
+
+        </div>
+
+        
+
+        
+
+
+       
+
+  
+    
+        <script> 
+    
+        </script>
+        
+    
+    </body>
+
+
+</html>
